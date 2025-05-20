@@ -1,42 +1,129 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+/* Transitions et animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Scrollbars personnalisées */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Mode sombre pour les scrollbars */
+.dark-theme::-webkit-scrollbar-track {
+  background: #333;
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+
+/* Animations pour les modales */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Transitions pour les éléments */
+.progress-bar-fill {
+  transition: width 0.4s ease-out;
+}
+
+.filter-button, .tab-button {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Adaptations responsives */
+@media (max-width: 768px) {
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .tab-button {
+    flex-grow: 1;
+    flex-basis: calc(33.33% - 8px);
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 13px;
+  }
+  
+  .table-container {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .header-title {
+    font-size: 24px;
+  }
+  
+  .header-subtitle {
+    font-size: 14px;
+  }
+  
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-button, .add-button {
+    width: 100%;
+    margin-bottom: 8px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (max-width: 480px) {
+  .tab-button {
+    flex-basis: calc(50% - 8px);
+  }
+  
+  .modal-content {
+    width: 90%;
+    padding: 16px;
   }
 }
-
-.card {
-  padding: 2em;
+.rotate-icon {
+  display: inline-block;
+  transition: transform 0.4s ease;
 }
 
-.read-the-docs {
-  color: #888;
+.rotate-dark {
+  transform: rotate(0deg);
+}
+
+.rotate-light {
+  transform: rotate(180deg);
 }

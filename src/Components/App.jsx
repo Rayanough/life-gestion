@@ -1362,8 +1362,8 @@ function App() {
   bottom: 0,
   width: '100%',
   height: '100%',
-  background: theme === 'dark' ? '#242424' : '#fff',
-  color: theme === 'dark' ? '#f3f3f3' : '#222',
+  background: theme === 'dark' ? '#1e1e1e' : '#ffffff',
+  color: theme === 'dark' ? '#eaeaea' : '#222',
   fontFamily: 'system-ui, sans-serif',
   display: 'flex',
   flexDirection: 'column',
@@ -1572,12 +1572,14 @@ function App() {
   return (
     <div style={styles.root}>
       <button 
-        style={styles.themeSwitch} 
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        aria-label="Changer de thème" 
-      >
-        {theme === 'dark' ? '☀️' : '🌙'}
-      </button>
+  style={styles.themeSwitch} 
+  onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+  aria-label="Changer de thème"
+>
+  <span className={`rotate-icon ${theme === 'dark' ? 'rotate-dark' : 'rotate-light'}`}>
+    {theme === 'dark' ? '☀️' : '🌙'}
+  </span>
+</button>
       
       <header style={styles.header}>
         <h1 style={styles.title}>Vision stratégique jusqu'à 30 ans</h1>
