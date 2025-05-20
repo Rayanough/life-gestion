@@ -10,6 +10,8 @@ const tabs = [
   { key: 'week', label: 'Vue Hebdomadaire' },
   { key: 'day', label: 'Vue Journalière' },
   { key: 'todo', label: 'To-Do List' },
+  { key: 'valuechain', label: 'Chaîne de Valeur' },
+
 ];
 
 // Constantes pour statuts avec émojis
@@ -1548,25 +1550,33 @@ function App() {
   }),
 };
 
-  // Afficher la vue correspondante à l'onglet actif
-  const renderActiveView = () => {
-    switch (activeTab) {
-      case 'year':
-        return <YearView styles={styles} theme={theme} openModal={openModal} />;
-      case 'quarter':
-        return <QuarterView styles={styles} theme={theme} openModal={openModal} />;
-      case 'month':
-        return <MonthView styles={styles} theme={theme} openModal={openModal} />;
-      case 'week':
-        return <WeekView styles={styles} theme={theme} openModal={openModal} />;
-      case 'day':
-        return <DayView styles={styles} theme={theme} openModal={openModal} />;
-      case 'todo':
-        return <TodoView styles={styles} theme={theme} openModal={openModal} />;
-      default:
-        return <div>Onglet non reconnu</div>;
-    }
-  };
+ // Afficher la vue correspondante à l'onglet actif
+const renderActiveView = () => {
+  switch (activeTab) {
+    case 'year':
+      return <YearView styles={styles} theme={theme} openModal={openModal} />;
+    case 'quarter':
+      return <QuarterView styles={styles} theme={theme} openModal={openModal} />;
+    case 'month':
+      return <MonthView styles={styles} theme={theme} openModal={openModal} />;
+    case 'week':
+      return <WeekView styles={styles} theme={theme} openModal={openModal} />;
+    case 'day':
+      return <DayView styles={styles} theme={theme} openModal={openModal} />;
+    case 'todo':
+      return <TodoView styles={styles} theme={theme} openModal={openModal} />;
+    case 'valuechain':
+      return (
+        <div style={{ padding: 20 }}>
+          <h2>🔗 Chaîne de Valeur</h2>
+          <p>Ici s’affichera ta vision stratégique décomposée.</p>
+        </div>
+      );
+    default:
+      return <div>Onglet non reconnu</div>;
+  }
+};
+
 
   return (
     <div style={styles.root}>
